@@ -123,6 +123,46 @@
           }
         }
       }
+    },
+    "cyclic": {
+      "projectType": "library",
+      "root": "projects/cyclic",
+      "sourceRoot": "projects/cyclic/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/cyclic/tsconfig.lib.json",
+            "project": "projects/cyclic/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/cyclic/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/cyclic/src/test.ts",
+            "tsConfig": "projects/cyclic/tsconfig.spec.json",
+            "karmaConfig": "projects/cyclic/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/cyclic/tsconfig.lib.json",
+              "projects/cyclic/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "ivy-bug-test"
 }

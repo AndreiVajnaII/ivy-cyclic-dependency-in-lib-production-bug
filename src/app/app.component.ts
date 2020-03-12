@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-root',
   template: `
-    <app-child *ngIf="visible"></app-child>
+    <lib-parent *ngIf="visible"></lib-parent>
     <button (click)="show()">Show</button>`
 })
 export class AppComponent {
